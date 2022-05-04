@@ -21,19 +21,19 @@ public class Course implements Comparator<Course> {
     
      static Map<Course, String> courses = new LinkedHashMap();
      
-     Teacher te = new Teacher();
+     static Teacher te = new Teacher();
      
     
     private String course;
     private int numOfClassPerWeek;
     
-    static Course computerSci1 = new Course("Computer Science", Teacher.cs1, 3);
-    static Course computerSci2 = new Course("Computer Science", Teacher.cs2, 3);
-    static Course computerSci3 = new Course("Computer Science", Teacher.cs3, 3);
-    static Course computerSci4 = new Course("Computer Science", Teacher.cs4, 3);
-    static Course computerSci5 = new Course("Computer Science", Teacher.cs5, 3);
-    static Course computerSci6 = new Course("Computer Science", Teacher.cs6, 3);
-    static Course computerSci7 = new Course("Computer Science", Teacher.cs7, 3);
+    static Course computerSci1 = new Course("Introduction to Programming", Teacher.cs1, 3);
+    static Course computerSci2 = new Course("Introduction to Programming", Teacher.cs2, 3);
+    static Course computerSci3 = new Course("Introduction to Programming", Teacher.cs3, 3);
+    static Course computerSci4 = new Course("Introduction to Programming", Teacher.cs4, 3);
+    static Course computerSci5 = new Course("Introduction to Programming", Teacher.cs5, 3);
+    static Course computerSci6 = new Course("Introduction to Programming", Teacher.cs6, 3);
+    static Course computerSci7 = new Course("Introduction to Programming", Teacher.cs7, 3);
     
     static Course Math1 = new Course("Calculus I", Teacher.cal1, 3);
     static Course Math2 = new Course("Calculus I", Teacher.cal2, 3);
@@ -305,7 +305,7 @@ public class Course implements Comparator<Course> {
 
 	@Override
 	public String toString() {
-		return this.course + " " + this.numOfClassPerWeek;
+		return this.course + " " + this.numOfClassPerWeek ;
 	}
 
 	@Override

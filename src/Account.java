@@ -15,19 +15,21 @@ public class Account {
     
     
     ArrayList<Account> accounts = new ArrayList();
+    Course[] myCourse = new Course[7];
     
     
     private String firstName;
     private String lastName;
     private String userName;
     private String password;
+    private int numbOfClass  = 0;
 
     public Account(String firstName, String lastName, String userName, String password, int size) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
-        int[] myCourse = new int[size];
+        this.myCourse = new Course[size];
         
     }
 
@@ -74,5 +76,15 @@ public class Account {
     	accounts.add(newAccount);
     }
        
+    public void addCoursesToAccount(Course addedCourse) {
+    	numbOfClass++;
+    	myCourse[numbOfClass - 1] = addedCourse;
+    	
+    }
     
+    public void displayCourses() {
+    	for (int i = 0; i < myCourse.length ; i++) {
+			System.out.println(myCourse[i]);
+		}
+    }
 }

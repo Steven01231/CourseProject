@@ -18,7 +18,9 @@ public class MainClass {
             Account account = new Account();
             
             Course courses = new Course();
-            courses.displayCourses();
+            
+            
+            
             /*System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
             int option = us.retrieveUserOption();
             
@@ -36,6 +38,8 @@ public class MainClass {
                     account.accounts.add(newAccount);
                     account.addAccount(newAccount);
                     System.out.println("Account succesfully created!");
+                    account.addCoursesToAccount(courses.Chemistry1);
+            		account.displayCourses();
                     //code to choose courses by category and subcat
                     //add to the array when chosen
                     break;
