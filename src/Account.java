@@ -70,6 +70,9 @@ public class Account {
         this.password = password;
     }
     
+    public void addAccount(Account newAccount) {
+    	accounts.add(newAccount);
+    }
        
     
 }

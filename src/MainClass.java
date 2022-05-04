@@ -16,7 +16,10 @@ public class MainClass {
 	public static void main(String args[]) {
 			UserInputManager us = new UserInputManager();
             Account account = new Account();
-            System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
+            
+            Course courses = new Course();
+            courses.displayCourses();
+            /*System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
             int option = us.retrieveUserOption();
             
             
@@ -31,6 +34,7 @@ public class MainClass {
                 case 2:
                     Account newAccount = us.createAccountInfo();
                     account.accounts.add(newAccount);
+                    account.addAccount(newAccount);
                     System.out.println("Account succesfully created!");
                     //code to choose courses by category and subcat
                     //add to the array when chosen
@@ -39,7 +43,7 @@ public class MainClass {
                 	System.out.println("Invalid option");
                 	break;
                 	
-            }
+            }*/
             
            
             

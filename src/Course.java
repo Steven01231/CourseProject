@@ -7,6 +7,9 @@
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -16,208 +19,263 @@ public class Course implements Comparator<Course> {
 	
 	
     
-    ArrayList<Course> courses = new ArrayList<Course>();
+     static Map<Course, String> courses = new LinkedHashMap();
+     
+     Teacher te = new Teacher();
+     
     
     private String course;
     private int numOfClassPerWeek;
-   
-    //cs teachers
-    Teacher cs1 = new Teacher("Ramanathan", "Sakku");
-    Teacher cs2 = new Teacher ("Emanul", "John");
-    Teacher cs3 = new Teacher("Desislava", "Vivien");
-    Teacher cs4 = new Teacher("Ramazan", "Maria");
-    Teacher cs5 = new Teacher("Indra", "Rina");
-    Teacher cs6 = new Teacher("Zaire", "Jeremiel");
-    Teacher cs7 = new Teacher("Goodwin", "Moncho");
     
-    Course computerSci1 = new Course("Computer Science", cs1, 3);
-    Course computerSci2 = new Course("Computer Science", cs2, 3);
-    Course computerSci3 = new Course("Computer Science", cs3, 3);
-    Course computerSci4 = new Course("Computer Science", cs4, 3);
-    Course computerSci5 = new Course("Computer Science", cs5, 3);
-    Course computerSci6 = new Course("Computer Science", cs6, 3);
-    Course computerSci7 = new Course("Computer Science", cs7, 3);
+    static Course computerSci1 = new Course("Computer Science", Teacher.cs1, 3);
+    static Course computerSci2 = new Course("Computer Science", Teacher.cs2, 3);
+    static Course computerSci3 = new Course("Computer Science", Teacher.cs3, 3);
+    static Course computerSci4 = new Course("Computer Science", Teacher.cs4, 3);
+    static Course computerSci5 = new Course("Computer Science", Teacher.cs5, 3);
+    static Course computerSci6 = new Course("Computer Science", Teacher.cs6, 3);
+    static Course computerSci7 = new Course("Computer Science", Teacher.cs7, 3);
     
-    //Math teachers
-    Teacher cal1 = new Teacher("Mateja", "Zarina");
-    Teacher cal2 = new Teacher("Mala", "Tatiana");
-    Teacher cal3 = new Teacher("Lassana", "Duff");
-    Teacher cal4 = new Teacher("Dinara", "Leonie");
-    Teacher cal5 = new Teacher("Pinelopi", "Tiina");
-    Teacher cal6 = new Teacher("Shamil", "Diana");
-    Teacher cal7 = new Teacher("Esme", "Wayne");
+    static Course Math1 = new Course("Calculus I", Teacher.cal1, 3);
+    static Course Math2 = new Course("Calculus I", Teacher.cal2, 3);
+    static Course Math3 = new Course("Calculus I", Teacher.cal3, 3);
+    static Course Math4 = new Course("Calculus I", Teacher.cal4, 3);
+    static Course Math5 = new Course("Calculus I", Teacher.cal5, 3);
+    static Course Math6 = new Course("Calculus I", Teacher.cal6, 3);
+    static Course Math7 = new Course("Calculus I", Teacher.cal7, 3);
     
-    Course Math1 = new Course("Calculus I", cal1, 3);
-    Course Math2 = new Course("Calculus I", cal2, 3);
-    Course Math3 = new Course("Calculus I", cal3, 3);
-    Course Math4 = new Course("Calculus I", cal4, 3);
-    Course Math5 = new Course("Calculus I", cal5, 3);
-    Course Math6 = new Course("Calculus I", cal6, 3);
-    Course Math7 = new Course("Calculus I", cal7, 3);
+    static Course Math8 = new Course("Calculus II", Teacher.cal1, 3);
+    static Course Math9 = new Course("Calculus II", Teacher.cal2, 3);
+    static Course Math10 = new Course("Calculus II", Teacher.cal3, 3);
+    static Course Math11 = new Course("Calculus II", Teacher.cal4, 3);
+    static Course Math12 = new Course("Calculus II", Teacher.cal5, 3);
+    static Course Math13 = new Course("Calculus II", Teacher.cal6, 3);
+    static Course Math14 = new Course("Calculus II", Teacher.cal7, 3);
     
-    Course Math8 = new Course("Calculus II", cal1, 3);
-    Course Math9 = new Course("Calculus II", cal2, 3);
-    Course Math10 = new Course("Calculus II", cal3, 3);
-    Course Math11 = new Course("Calculus II", cal4, 3);
-    Course Math12 = new Course("Calculus II", cal5, 3);
-    Course Math13 = new Course("Calculus II", cal6, 3);
-    Course Math14 = new Course("Calculus II", cal7, 3);
+    static Course Math15 = new Course("Linear Algebra", Teacher.cal1, 3);
+    static Course Math16 = new Course("Linear Algebra", Teacher.cal2, 3);
+    static Course Math17 = new Course("Linear Algebra", Teacher.cal3, 3);
+    static Course Math18 = new Course("Linear Algebra", Teacher.cal4, 3);
+    static Course Math19 = new Course("Linear Algebra", Teacher.cal5, 3);
+    static Course Math20 = new Course("Linear Algebra", Teacher.cal6, 3);
+    static Course Math21 = new Course("Linear Algebra", Teacher.cal7, 3);
     
-    Course Math15 = new Course("Linear Algebra", cal1, 3);
-    Course Math16 = new Course("Linear Algebra", cal2, 3);
-    Course Math17 = new Course("Linear Algebra", cal3, 3);
-    Course Math18 = new Course("Linear Algebra", cal4, 3);
-    Course Math19 = new Course("Linear Algebra", cal5, 3);
-    Course Math20 = new Course("Linear Algebra", cal6, 3);
-    Course Math21 = new Course("Linear Algebra", cal7, 3);
+    static Course Chemistry1 = new Course("General Chemistry", Teacher.chem1, 3);
+    static Course Chemistry2 = new Course("General Chemistry", Teacher.chem2, 3);
+    static Course Chemistry3 = new Course("General Chemistry", Teacher.chem3, 3);
+    static Course Chemistry4 = new Course("General Chemistry", Teacher.chem4, 3);
+    static Course Chemistry5 = new Course("General Chemistry", Teacher.chem5, 3);
+    static Course Chemistry6 = new Course("General Chemistry", Teacher.chem6, 3);
+    static Course Chemistry7 = new Course("General Chemistry", Teacher.chem7, 3);
     
-    //Chemistry teachers
-    Teacher chem1 = new Teacher("Turcu", "Andrei");
-    Teacher chem2 = new Teacher("Reimund", "Maunu");
-    Teacher chem3 = new Teacher("Ian", "Vassilis");
-    Teacher chem4 = new Teacher("Epaphras", "Yasu");
-    Teacher chem5 = new Teacher("Damian", "Jesse");
-    Teacher chem6 = new Teacher("Magnhildr", "Ivan");
-    Teacher chem7 = new Teacher("Surendra", "Calpurnia");
+    static Course Chemistry8 = new Course("Chemistry of Solutions", Teacher.chem1, 3);
+    static Course Chemistry9 = new Course("Chemistry of Solutions", Teacher.chem2, 3);
+    static Course Chemistry10 = new Course("Chemistry of Solutions", Teacher.chem3, 3);
+    static Course Chemistry11 = new Course("Chemistry of Solutions", Teacher.chem4, 3);
+    static Course Chemistry12 = new Course("Chemistry of Solutions", Teacher.chem5, 3);
+    static Course Chemistry13 = new Course("Chemistry of Solutions", Teacher.chem6, 3);
+    static Course Chemistry14 = new Course("Chemistry of Solutions", Teacher.chem7, 3);
     
-    Course Chemistry1 = new Course("General Chemistry", chem1, 3);
-    Course Chemistry2 = new Course("General Chemistry", chem2, 3);
-    Course Chemistry3 = new Course("General Chemistry", chem3, 3);
-    Course Chemistry4 = new Course("General Chemistry", chem4, 3);
-    Course Chemistry5 = new Course("General Chemistry", chem5, 3);
-    Course Chemistry6 = new Course("General Chemistry", chem6, 3);
-    Course Chemistry7 = new Course("General Chemistry", chem7, 3);
+    static Course Chemistry15 = new Course("Organic Chemistry", Teacher.chem1, 3);
+    static Course Chemistry16 = new Course("Organic Chemistry", Teacher.chem2, 3);
+    static Course Chemistry17 = new Course("Organic Chemistry", Teacher.chem3, 3);
+    static Course Chemistry18 = new Course("Organic Chemistry", Teacher.chem4, 3);
+    static Course Chemistry19 = new Course("Organic Chemistry", Teacher.chem5, 3);
+    static Course Chemistry20 = new Course("Organic Chemistry", Teacher.chem6, 3);
+    static Course Chemistry21 = new Course("Organic Chemistry", Teacher.chem7, 3);
     
-    Course Chemistry8 = new Course("Chemistry of Solutions", chem1, 3);
-    Course Chemistry9 = new Course("Chemistry of Solutions", chem2, 3);
-    Course Chemistry10 = new Course("Chemistry of Solutions", chem3, 3);
-    Course Chemistry11 = new Course("Chemistry of Solutions", chem4, 3);
-    Course Chemistry12 = new Course("Chemistry of Solutions", chem5, 3);
-    Course Chemistry13 = new Course("Chemistry of Solutions", chem6, 3);
-    Course Chemistry14 = new Course("Chemistry of Solutions", chem7, 3);
+    static Course humanities1 = new Course("World Views",Teacher.hum1, 2);
+    static Course humanities2 = new Course("World Views", Teacher.hum2, 2);
+    static Course humanities3 = new Course("World Views", Teacher.hum3, 2);
+    static Course humanities4 = new Course("World Views", Teacher.hum4, 2);
+    static Course humanities5 = new Course("World Views", Teacher.hum5, 1);
+    static Course humanities6 = new Course("World Views", Teacher.hum6, 1);
+    static Course humanities7 = new Course("World Views", Teacher.hum7, 1);
     
-    Course Chemistry15 = new Course("Organic Chemistry", chem1, 3);
-    Course Chemistry16 = new Course("Organic Chemistry", chem2, 3);
-    Course Chemistry17 = new Course("Organic Chemistry", chem3, 3);
-    Course Chemistry18 = new Course("Organic Chemistry", chem4, 3);
-    Course Chemistry19 = new Course("Organic Chemistry", chem5, 3);
-    Course Chemistry20 = new Course("Organic Chemistry", chem6, 3);
-    Course Chemistry21 = new Course("Organic Chemistry", chem7, 3);
+    static Course humanities8 = new Course("Knowledge", Teacher.hum1, 2);
+    static Course humanities9 = new Course("Knowledge", Teacher.hum2, 2);
+    static Course humanities10 = new Course("Knowledge", Teacher.hum3, 2);
+    static Course humanities11 = new Course("Knowledge", Teacher.hum4, 2);
+    static Course humanities12 = new Course("Knowledge", Teacher.hum5, 2);
+    static Course humanities13 = new Course("Knowledge", Teacher.hum6, 2);
+    static Course humanities14 = new Course("Knowledge", Teacher.hum7, 2);
     
-    //humanities teachers
-    Teacher hum1 = new Teacher("Shiv", "Mathew");
-    Teacher hum2 = new Teacher("Trev", "Antonijo");
-    Teacher hum3 = new Teacher("Gaheriet", "Nikol");
-    Teacher hum4 = new Teacher("Aldhard", "Hieronim");
-    Teacher hum5 = new Teacher("Prateek", "Alwin");
-    Teacher hum6 = new Teacher("Stigandr", "Keinan");
-    Teacher hum7 = new Teacher("Puroshottam", "Rosa Maria");
+    static Course english1 = new Course("English", Teacher.eng1, 2);
+    static Course english2 = new Course("English", Teacher.eng2, 2);
+    static Course english3 = new Course("English", Teacher.eng3, 2);
+    static Course english4 = new Course("English", Teacher.eng4, 2);
+    static Course english5 = new Course("English", Teacher.eng5, 2);
+    static Course english6 = new Course("English", Teacher.eng6, 2);
+    static Course english7 = new Course("English", Teacher.eng7, 2);
     
-    Course humanities1 = new Course("World Views", hum1, 2);
-    Course humanities2 = new Course("World Views", hum2, 2);
-    Course humanities3 = new Course("World Views", hum3, 2);
-    Course humanities4 = new Course("World Views", hum4, 2);
-    Course humanities5 = new Course("World Views", hum5, 1);
-    Course humanities6 = new Course("World Views", hum6, 1);
-    Course humanities7 = new Course("World Views", hum7, 1);
+    static Course french1 = new Course("French", Teacher.fr1, 1);
+    static Course french2 = new Course("French", Teacher.fr2, 1);
+    static Course french3 = new Course("French", Teacher.fr3, 1);
+    static Course french4 = new Course("French", Teacher.fr4, 1);
+    static Course french5 = new Course("French", Teacher.fr5, 1);
+    static Course french6 = new Course("French", Teacher.fr6, 1);
+    static Course french7 = new Course("French", Teacher.fr7, 1);
     
-    Course humanities8 = new Course("Knowledge", hum1, 2);
-    Course humanities9 = new Course("Knowledge", hum2, 2);
-    Course humanities10 = new Course("Knowledge", hum3, 2);
-    Course humanities11 = new Course("Knowledge", hum4, 2);
-    Course humanities12 = new Course("Knowledge", hum5, 2);
-    Course humanities13 = new Course("Knowledge", hum6, 2);
-    Course humanities14 = new Course("Knowledge", hum7, 2);
+    static Course pe1 = new Course("Physical Education", Teacher.gym1, 1);
+    static Course pe2 = new Course("Physical Education", Teacher.gym2, 1);
+    static Course pe3 = new Course("Physical Education", Teacher.gym3, 1);
+    static Course pe4 = new Course("Physical Education", Teacher.gym4, 1);
+    static Course pe5 = new Course("Physical Education", Teacher.gym5, 1);
+    static Course pe6 = new Course("Physical Education", Teacher.gym6, 1);
+    static Course pe7 = new Course("Physical Education", Teacher.gym7, 1);
     
-    //english teachers
-    Teacher eng1 = new Teacher("Ambroos", "Gunter");
-    Teacher eng2 = new Teacher("Traian", "Otmar");
-    Teacher eng3 = new Teacher("Kolleen", "Varinia");
-    Teacher eng4 = new Teacher("Tiburtius", "Roger");
-    Teacher eng5 = new Teacher("Aenor", "Gerard");
-    Teacher eng6 = new Teacher("Blanid", "Zachary");
-    Teacher eng7 = new Teacher("Karna", "Justinian");
+    static Course physics1 = new Course("Mechanics", Teacher.phys1, 3);
+    static Course physics2 = new Course("Mechanics", Teacher.phys2, 3);
+    static Course physics3 = new Course("Mechanics", Teacher.phys3, 3);
+    static Course physics4 = new Course("Mechanics", Teacher.phys4, 3);
+    static Course physics5 = new Course("Mechanics", Teacher.phys5, 3);
+    static Course physics6 = new Course("Mechanics", Teacher.phys6, 3);
+    static Course physics7 = new Course("Mechanics", Teacher.phys7, 3);
     
-    Course english1 = new Course("English", eng1, 2);
-    Course english2 = new Course("English", eng2, 2);
-    Course english3 = new Course("English", eng3, 2);
-    Course english4 = new Course("English", eng4, 2);
-    Course english5 = new Course("English", eng5, 2);
-    Course english6 = new Course("English", eng6, 2);
-    Course english7 = new Course("English", eng7, 2);
+    static Course physics8 = new Course("Waves and Optics", Teacher.phys1, 3);
+    static Course physics9 = new Course("Waves and Optics", Teacher.phys2, 3);
+    static Course physics10 = new Course("Waves and Optics", Teacher.phys3, 3);
+    static Course physics11 = new Course("Waves and Optics", Teacher.phys4, 3);
+    static Course physics12 = new Course("Waves and Optics", Teacher.phys5, 3);
+    static Course physics13 = new Course("Waves and Optics", Teacher.phys6, 3);
+    static Course physics14 = new Course("Waves and Optics", Teacher.phys7, 3);
     
-    //french teachers
-    Teacher fr1 = new Teacher("Sixte", "Alix");
-    Teacher fr2 = new Teacher("Benerice", "Reine");
-    Teacher fr3 = new Teacher("Eloi", "Celeste");
-    Teacher fr4 = new Teacher("Coring", "Mariette");
-    Teacher fr5 = new Teacher("Isidore", "Sebastien");
-    Teacher fr6 = new Teacher("Roxane", "Daphnee");
-    Teacher fr7 = new Teacher("Hildegarde", "Roseline");
+    static Course physics15 = new Course("Electricity and Magnetism", Teacher.phys1, 3);
+    static Course physics16 = new Course("Electricity and Magnetism", Teacher.phys2, 3);
+    static Course physics17 = new Course("Electricity and Magnetism", Teacher.phys3, 3);
+    static Course physics18 = new Course("Electricity and Magnetism", Teacher.phys4, 3);
+    static Course physics19 = new Course("Electricity and Magnetism", Teacher.phys5, 3);
+    static Course physics20 = new Course("Electricity and Magnetium", Teacher.phys6, 3);
+    static Course physics21 = new Course("Electricity and Magnetism", Teacher.phys7, 3);
     
-    Course french1 = new Course("French", fr1, 1);
-    Course french2 = new Course("French", fr2, 1);
-    Course french3 = new Course("French", fr3, 1);
-    Course french4 = new Course("French", fr4, 1);
-    Course french5 = new Course("French", fr5, 1);
-    Course french6 = new Course("French", fr6, 1);
-    Course french7 = new Course("French", fr7, 1);
-    
-    //gym teachers
-    Teacher gym1 = new Teacher("Florentin", "Rosette");
-    Teacher gym2 = new Teacher("Philemon", "Ram");
-    Teacher gym3 = new Teacher("Nazariy", "Ally");
-    Teacher gym4 = new Teacher("Hagir", "Dewi");
-    Teacher gym5 = new Teacher("Kybele", "Julissa");
-    Teacher gym6 = new Teacher("Lexus", "Zoi");
-    Teacher gym7 = new Teacher("Achard", "Stefan");
-    
-    Course pe1 = new Course("Physical Education", gym1, 1);
-    Course pe2 = new Course("Physical Education", gym2, 1);
-    Course pe3 = new Course("Physical Education", gym3, 1);
-    Course pe4 = new Course("Physical Education", gym4, 1);
-    Course pe5 = new Course("Physical Education", gym5, 1);
-    Course pe6 = new Course("Physical Education", gym6, 1);
-    Course pe7 = new Course("Physical Education", gym7, 1);
-    
-    //physics teachers
-    Teacher phys1 = new Teacher("Drobogost", "Draupadi");
-    Teacher phys2 = new Teacher("Long", "Margaretta");
-    Teacher phys3 = new Teacher("Mamun", "Emma");
-    Teacher phys4 = new Teacher("Babur", "Iustus");
-    Teacher phys5 = new Teacher("Kallisto", "Marko");
-    Teacher phys6 = new Teacher("Meical", "Mukhtar");
-    Teacher phys7 = new Teacher("Dipti", "Jabril");
-    
-    Course physics1 = new Course("Mechanics", phys1, 3);
-    Course physics2 = new Course("Mechanics", phys2, 3);
-    Course physics3 = new Course("Mechanics", phys3, 3);
-    Course physics4 = new Course("Mechanics", phys4, 3);
-    Course physics5 = new Course("Mechanics", phys5, 3);
-    Course physics6 = new Course("Mechanics", phys6, 3);
-    Course physics7 = new Course("Mechanics", phys7, 3);
-    
-    Course physics8 = new Course("Waves and Optics", phys1, 3);
-    Course physics9 = new Course("Waves and Optics", phys2, 3);
-    Course physics10 = new Course("Waves and Optics", phys3, 3);
-    Course physics11 = new Course("Waves and Optics", phys4, 3);
-    Course physics12 = new Course("Waves and Optics", phys5, 3);
-    Course physics13 = new Course("Waves and Optics", phys6, 3);
-    Course physics14 = new Course("Waves and Optics", phys7, 3);
-    
-    Course physics15 = new Course("Electricity and Magnetism", phys1, 3);
-    Course physics16 = new Course("Electricity and Magnetism", phys2, 3);
-    Course physics17 = new Course("Electricity and Magnetism", phys3, 3);
-    Course physics18 = new Course("Electricity and Magnetism", phys4, 3);
-    Course physics19 = new Course("Electricity and Magnetism", phys5, 3);
-    Course physics20 = new Course("Electricity and Magnetium", phys6, 3);
-    Course physics21 = new Course("Electricity and Magnetism", phys7, 3);
+    public Course() {
+    	courses.put(computerSci1, "Computer Science");
+    	courses.put(computerSci2, "Computer Science" );
+    	courses.put(computerSci3, "Computer Science" );
+    	courses.put(computerSci4, "Computer Science" );
+    	courses.put(computerSci5, "Computer Science" );
+    	courses.put(computerSci6, "Computer Science" );
+    	courses.put(computerSci7, "Computer Science" );
+    	
+    	courses.put(Math1, "Math");
+    	courses.put(Math2, "Math");
+    	courses.put(Math3, "Math");
+    	courses.put(Math4, "Math");
+    	courses.put(Math5, "Math");
+    	courses.put(Math6, "Math");
+    	courses.put(Math7, "Math");
+    	
+    	courses.put(Math8, "Math");
+    	courses.put(Math9, "Math");
+    	courses.put(Math10, "Math");
+    	courses.put(Math11, "Math");
+    	courses.put(Math12, "Math");
+    	courses.put(Math13, "Math");
+    	courses.put(Math14, "Math");
+    	
+    	courses.put(Math15, "Math");
+    	courses.put(Math16, "Math");
+    	courses.put(Math17, "Math");
+    	courses.put(Math18, "Math");
+    	courses.put(Math19, "Math");
+    	courses.put(Math20, "Math");
+    	courses.put(Math21, "Math");
+    	
+    	courses.put(Chemistry1, "Chemistry");
+    	courses.put(Chemistry2, "Chemistry");
+    	courses.put(Chemistry3, "Chemistry");
+    	courses.put(Chemistry4, "Chemistry");
+    	courses.put(Chemistry5, "Chemistry");
+    	courses.put(Chemistry6, "Chemistry");
+    	courses.put(Chemistry7, "Chemistry");
+    	
+    	courses.put(Chemistry8, "Chemistry");
+    	courses.put(Chemistry9, "Chemistry");
+    	courses.put(Chemistry10, "Chemistry");
+    	courses.put(Chemistry11, "Chemistry");
+    	courses.put(Chemistry12, "Chemistry");
+    	courses.put(Chemistry13, "Chemistry");
+    	courses.put(Chemistry14, "Chemistry");
+    	
+    	courses.put(Chemistry15, "Chemistry");
+    	courses.put(Chemistry16, "Chemistry");
+    	courses.put(Chemistry17, "Chemistry");
+    	courses.put(Chemistry18, "Chemistry");
+    	courses.put(Chemistry19, "Chemistry");
+    	courses.put(Chemistry20, "Chemistry");
+    	courses.put(Chemistry21, "Chemistry");
+    	
+    	courses.put(humanities1, "Humanities");
+    	courses.put(humanities2, "Humanities");
+    	courses.put(humanities3, "Humanities");
+    	courses.put(humanities4, "Humanities");
+    	courses.put(humanities5, "Humanities");
+    	courses.put(humanities6, "Humanities");
+    	courses.put(humanities7, "Humanities");
+    	courses.put(humanities8, "Humanities");
+    	courses.put(humanities9, "Humanities");
+    	courses.put(humanities10, "Humanities");
+    	courses.put(humanities11, "Humanities");
+    	courses.put(humanities12, "Humanities");
+    	courses.put(humanities13, "Humanities");
+    	courses.put(humanities14, "Humanities");
+    	
+    	courses.put(english1, "English");
+    	courses.put(english2, "English");
+    	courses.put(english3, "English");
+    	courses.put(english4, "English");
+    	courses.put(english5, "English");
+    	courses.put(english6, "English");
+    	courses.put(english7, "English");
+    	
+    	courses.put(french1, "French");
+    	courses.put(french2, "French");
+    	courses.put(french3, "French");
+    	courses.put(french4, "French");
+    	courses.put(french5, "French");
+    	courses.put(french6, "French");
+    	courses.put(french7, "French");
+    	
+    	courses.put(pe1, "Physical Education");
+    	courses.put(pe2, "Physical Education");
+    	courses.put(pe3, "Physical Education");
+    	courses.put(pe4, "Physical Education");
+    	courses.put(pe5, "Physical Education");
+    	courses.put(pe6, "Physical Education");
+    	courses.put(pe7, "Physical Education");
+    	
+    	courses.put(physics1, "Physics");
+    	courses.put(physics2, "Physics");
+    	courses.put(physics3, "Physics");
+    	courses.put(physics4, "Physics");
+    	courses.put(physics5, "Physics");
+    	courses.put(physics6, "Physics");
+    	courses.put(physics7, "Physics");
+    	
+    	courses.put(physics8, "Physics");
+    	courses.put(physics9, "Physics");
+    	courses.put(physics10, "Physics");
+    	courses.put(physics11, "Physics");
+    	courses.put(physics12, "Physics");
+    	courses.put(physics13, "Physics");
+    	courses.put(physics14, "Physics");
+    	
+    	courses.put(physics15, "Physics");
+    	courses.put(physics16, "Physics");
+    	courses.put(physics17, "Physics");
+    	courses.put(physics18, "Physics");
+    	courses.put(physics19, "Physics");
+    	courses.put(physics20, "Physics");
+    	courses.put(physics21, "Physics");
+    	
+    	    }
     
     
     public Course(String course, Teacher teacher,  int numOfClassPerWeek) {
         this.course = course;
         this.numOfClassPerWeek = numOfClassPerWeek;
     }
+    
+    
   
     public String getCourse() {
         return course;
@@ -235,7 +293,22 @@ public class Course implements Comparator<Course> {
         this.numOfClassPerWeek = numOfClassPerWeek;
     }
     
-    @Override
+	public void displayCourses() {
+		int size = 0;
+		for(Map.Entry<Course, String> course: courses.entrySet()) {
+			System.out.print(course + " ");
+			te.displayTeacher(size);
+			size++;
+    	}
+		
+	}
+
+	@Override
+	public String toString() {
+		return this.course + " " + this.numOfClassPerWeek;
+	}
+
+	@Override
     public int compare(Course o1, Course o2) {
         return o1.course.compareTo(o2.course);
     }
