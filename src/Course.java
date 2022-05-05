@@ -8,14 +8,17 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  *
  * @author 2153617
  */
-public class Course implements Comparator<Course> {
+public class Course extends Teacher implements Comparator<Course> {
 	
 	
     
@@ -293,19 +296,28 @@ public class Course implements Comparator<Course> {
         this.numOfClassPerWeek = numOfClassPerWeek;
     }
     
-	public void displayCourses() {
+	public void displayCourses(String coursesAsked) {
+		
 		int size = 0;
 		for(Map.Entry<Course, String> course: courses.entrySet()) {
-			System.out.print(course + " ");
-			te.displayTeacher(size);
+			if(course.getValue().equals(coursesAsked)) {
+			System.out.print(course.getKey() + " ");
+			System.out.println(te.teachers.get(size));
+			}
 			size++;
     	}
+		
+	}
+	
+	public void retrieveCourse() {
+		
+		
 		
 	}
 
 	@Override
 	public String toString() {
-		return this.course + " " + this.numOfClassPerWeek ;
+		return this.course + " " + this.numOfClassPerWeek;
 	}
 
 	@Override

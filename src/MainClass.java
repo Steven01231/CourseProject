@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class MainClass {
 	
@@ -14,6 +15,7 @@ public class MainClass {
 	public static final String ANSI_WHITE = "\u001B[37m";
 	
 	public static void main(String args[]) {
+			Scanner sc = new Scanner(System.in);
 			UserInputManager us = new UserInputManager();
             Account account = new Account();
             
@@ -21,7 +23,7 @@ public class MainClass {
             
             
             
-            /*System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
+            System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
             int option = us.retrieveUserOption();
             
             
@@ -38,8 +40,11 @@ public class MainClass {
                     account.accounts.add(newAccount);
                     account.addAccount(newAccount);
                     System.out.println("Account succesfully created!");
-                    account.addCoursesToAccount(courses.Chemistry1);
-            		account.displayCourses();
+                    
+                    
+                    System.out.println("Which Course would you like to add to your list of courses?");
+                	String DesiredCourses = sc.nextLine();
+            		courses.displayCourses(DesiredCourses);
                     //code to choose courses by category and subcat
                     //add to the array when chosen
                     break;
@@ -47,7 +52,7 @@ public class MainClass {
                 	System.out.println("Invalid option");
                 	break;
                 	
-            }*/
+            }
             
            
             

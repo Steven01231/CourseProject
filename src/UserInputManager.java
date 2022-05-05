@@ -57,4 +57,10 @@ public class UserInputManager {
     	else
     	return numb;
     }
+    
+    public String retrieveDesiredCourses() {
+    	System.out.println("Which Course would you like to add to your list of courses?");
+    	String courses = sc.nextLine();
+    	return courses;
+    }
 }
