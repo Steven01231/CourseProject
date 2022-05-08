@@ -27,16 +27,34 @@ public class MainClass {
             
             
             System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
-            int option = us.retrieveUserOption();
             
-            
+            boolean exit = false;
+            do{
+                int option = us.retrieveUserOption();
+                
             switch(option){
             	case 0:
             		System.out.println("You have successfully exited the Website!");
+                        exit = true;
             		break;
+                        
                 case 1:
                     String userName = us.retrieveAccountUserName();
-                    us.retrieveAccountPassWord();
+                    String pass = us.retrieveAccountPassWord();
+                    for(int i =0; i < account.accounts.size() -1; i++){
+                       
+                        if(account.accounts.get(i).getUserName().equals(userName) && account.accounts.get(i).getPassword().equals(pass)){
+                        	System.out.println("Welcome to Lol Organizer!");
+                        	System.out.println("<>---------------------<>");
+                        	System.out.println("Select a number: ");
+                        	int anotherOption = us.retrieveUserOption();
+                        	switch(anotherOption){
+                        	case  1:
+                        		break;
+                        	}
+
+                        }
+                    }
                     break;
                 case 2:
                     Account newAccount = us.createAccountInfo();
@@ -44,27 +62,48 @@ public class MainClass {
                     account.addAccount(newAccount);
                     System.out.println("Account succesfully created!");
                     
-                    //put while loop for the amount of courses given
+                    int numb = us.retrieveNumOfClass();
+                    
+                            
+                    for (int i = 0; i < numb; i++) {
                     System.out.println("Which Course would you like to add to your list of courses?");
+                    
                 	String DesiredCourses = sc.nextLine();
+                	if(courses.courses.containsValue(DesiredCourses)) {
             		courses.displayCourses(DesiredCourses);
-                        /*String subCat = us.retrieveCourseSubCatName();
-                        System.out.println(subCat);
                         
-                        int numbClass = us.retrieveNumOfClass();
-                        Teacher teach = us.retrieveTeacherName();
-                        Course course = new Course(subCat, numbClass);
-                        System.out.println(course);
-                        */
+                        String key = us.retrieveKey();
+                        courses.addCourse(key, DesiredCourses, newAccount);
+                        System.out.println("<>---------------------<>");
+                	}
+                	else {
+                		System.out.println("You have entered an invalid option. Please try again.");
+                		
+                		numb++;
+                	}
                         
-                    //code to choose courses by category and subcat
-                    //add to the array when chosen
+                    }
+                    
+                    System.out.println(ANSI_GREEN + "Schedule completed!" + ANSI_RESET);
+                    System.out.println("Here is your schedule: ");
+                    newAccount.displayCourses();
+                       
+                    System.out.println("Which option would you like to do: [3] Go to agenda [0] Exit website");
+                
+                    break;
+                case 3:
+                    System.out.println("HELLO");
                     break;
                 default:
                 	System.out.println("Invalid option");
                 	break;
+                        
+                        
                 	
             }
+            
+            }while(exit == false);
+            
             
            
             

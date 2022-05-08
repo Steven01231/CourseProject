@@ -1,5 +1,6 @@
 package courseprojec;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInputManager {
@@ -22,9 +23,8 @@ public class UserInputManager {
         System.out.println("Create a password: ");
         String password = sc.next();
         
-        int numb = retrieveNumberOfClasses();
         
-        Account newAccount = new Account(firstName, lastName, userName, password, numb);
+        Account newAccount = new Account(firstName, lastName, userName, password);
         
         return newAccount;
     }
@@ -43,9 +43,11 @@ public class UserInputManager {
     }
     
     public int retrieveUserOption(){
-    	
+    	int number = 0;
         System.out.println("Enter: ");
-        int number = sc.nextInt();
+        try {
+        number = sc.nextInt();
+        }catch(InputMismatchException e) {System.out.println("You have entered an invalid choice. Please try again.");}
         return number;
     }
     public int retrieveNumberOfClasses() {
@@ -89,5 +91,12 @@ public class UserInputManager {
         String last = sc.next();
         Teacher teach = new Teacher(last, first);
         return teach;
+    }
+    
+    public String retrieveKey(){
+        System.out.println("[Code] of chosen course : ");
+        String key = sc.next();
+        
+        return key;
     }
 }

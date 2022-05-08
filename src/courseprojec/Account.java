@@ -17,7 +17,7 @@ public class Account {
     
     
     ArrayList<Account> accounts = new ArrayList();
-    Course[] myCourse;
+    ArrayList<Course> myCourse = new ArrayList();
     
     
     private String firstName;
@@ -26,12 +26,12 @@ public class Account {
     private String password;
     private int numbOfClass  = 0;
 
-    public Account(String firstName, String lastName, String userName, String password, int size) {
+    public Account(String firstName, String lastName, String userName, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
-        this.myCourse = new Course[size];
+        this.myCourse = new ArrayList();
         
     }
 
@@ -77,16 +77,11 @@ public class Account {
     public void addAccount(Account newAccount) {
     	accounts.add(newAccount);
     }
-       
-    public void addCoursesToAccount(Course addedCourse) {
-    	numbOfClass++;
-    	myCourse[numbOfClass - 1] = addedCourse;
-    	
-    }
+
     
     public void displayCourses() {
-    	for (int i = 0; i < myCourse.length ; i++) {
-			System.out.println(myCourse[i]);
+    	for (int i = 0; i < myCourse.size() ; i++) {
+			System.out.println(myCourse.get(i));
 		}
     }
 }
