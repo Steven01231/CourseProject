@@ -46,10 +46,21 @@ public class MainClass {
                         if(account.accounts.get(i).getUserName().equals(userName) && account.accounts.get(i).getPassword().equals(pass)){
                         	System.out.println("Welcome to Lol Organizer!");
                         	System.out.println("<>---------------------<>");
-                        	System.out.println("Select a number: ");
+                        	System.out.println("Select a number: [1. Display Courses] [2. Access Agenda]");
                         	int anotherOption = us.retrieveUserOption();
                         	switch(anotherOption){
                         	case  1:
+                        		System.out.println("<>-------------------<>");
+                        		for (int j = 0; j < account.accounts.get(i).myCourse.size(); j++) {
+									
+								
+                        	    System.out.println(account.accounts.get(i).myCourse.get(j));
+                        	    System.out.println("----------------------");
+                        		}
+                        		break;
+                        	
+                        	case 2:
+                        		
                         		break;
                         	}
 

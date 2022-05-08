@@ -80,8 +80,17 @@ public class Account {
 
     
     public void displayCourses() {
+    	System.out.println("Your courses: ");
     	for (int i = 0; i < myCourse.size() ; i++) {
 			System.out.println(myCourse.get(i));
 		}
     }
+
+
+	@Override
+	public String toString() {
+		return this.firstName + " " + this.lastName;
+	}
+    
+    
 }
