@@ -383,6 +383,8 @@ public class Course extends Teacher implements Comparator<Course> {
     public void displayCourses(String coursesAsked) {
     	        int size = 0;
         Teacher te = new Teacher();
+        
+        
         for (Map.Entry<HashMap, String> course : courses.entrySet()) {
             if (course.getValue().equals(coursesAsked)) {
                 Set set2 = course.getKey().entrySet();

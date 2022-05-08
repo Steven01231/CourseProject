@@ -1,5 +1,6 @@
 package courseprojec;
 
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -98,5 +99,36 @@ public class UserInputManager {
         String key = sc.next();
         
         return key;
+    }
+    
+    public String retrieveNameOfEvents() {
+    	System.out.println("What name would you like to put for your event?(10 words maximum)");
+    	String name = sc.nextLine();
+    	return name;
+    }
+    
+    public Category retrieveCategory() {
+    	System.out.println("Which category would you like to assign to your event?");
+    	String nameCat = sc.nextLine();
+    	
+    	return new Category(nameCat);
+    }
+    
+    public SubCategory retrieveSubCategory() {
+    	System.out.println("Which SubCategory would you like to assign to your event?");
+    	String nameSubCat = sc.nextLine();
+    	
+    	return new SubCategory(nameSubCat);
+    }
+    
+    public DueDate retrieveLocalDate() {
+    	Scanner sc3 = new Scanner(System.in);
+    	System.out.println("Enter a day: ");
+    	int day = sc3.nextInt();
+    	System.out.println("Enter a month: ");
+    	int month = sc3.nextInt();
+    	System.out.println("Enter a year: ");
+    	int year = sc3.nextInt();
+    	return new DueDate(day, month, year);
     }
 }

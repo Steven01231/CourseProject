@@ -2,7 +2,11 @@ package courseprojec;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MainClass {
 	
@@ -22,14 +26,15 @@ public class MainClass {
             Account account = new Account();
             
             Course courses = new Course();
+            EventOrganizer eo = new EventOrganizer();
             
             
             
             
-            System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
             
             boolean exit = false;
             do{
+            	System.out.println(ANSI_BLUE + "[1. Log In] [2. Sign Up] [0. Exit] " + ANSI_RESET);
                 int option = us.retrieveUserOption();
                 
             switch(option){
@@ -44,7 +49,8 @@ public class MainClass {
                     for(int i =0; i < account.accounts.size() -1; i++){
                        
                         if(account.accounts.get(i).getUserName().equals(userName) && account.accounts.get(i).getPassword().equals(pass)){
-                        	System.out.println("Welcome to Lol Organizer!");
+                        	System.out.print("Welcome to Lol Organizer" + " ");
+                        	System.out.println(account.accounts.get(i).getFirstName() + " " + account.accounts.get(i).getLastName() + "!");
                         	System.out.println("<>---------------------<>");
                         	System.out.println("Select a number: [1. Display Courses] [2. Access Agenda]");
                         	int anotherOption = us.retrieveUserOption();
@@ -60,10 +66,39 @@ public class MainClass {
                         		break;
                         	
                         	case 2:
-                        		
+                        		if(eo.listOfEvents.size() != 0) {
+                        			for (int j = 0; j < eo.listOfEvents.size() ; j++) {
+										System.out.println(eo.listOfEvents.get(j));
+									}
+                        		}
+                        		else {
+                        			System.out.println("There's no event in your agenda yet.");
+                        		}
+                        		System.out.println("<>-------------------<>");
+                        		System.out.println("Enter a number you want to select: [1. Add an event] [2. Remove a finished event] [3. Modify an event]");
+                        		int anotherAnotherOption = us.retrieveUserOption();
+                        		switch(anotherAnotherOption) {
+                        		case 1:
+                        			String name = us.retrieveNameOfEvents();
+                        			Category cat = us.retrieveCategory();
+                        			SubCategory subCat = us.retrieveSubCategory();
+                        			DueDate dueDate = us.retrieveLocalDate();
+                        			eo.addEvents(new EventOrganizer(name, cat, subCat, dueDate));;
+                        			break;
+                        			
+                        		case 2:
+                        			
+                        			break;
+                        			
+                        		case 0:
+                        			break;
+                        		}
                         		break;
                         	}
 
+                        }
+                        else {
+                        	System.out.println("There is no account with that username!");
                         }
                     }
                     break;
@@ -72,7 +107,18 @@ public class MainClass {
                     account.accounts.add(newAccount);
                     account.addAccount(newAccount);
                     System.out.println("Account succesfully created!");
+                    System.out.println("You're immediately directed to registration!");
+                    System.out.println("<>-------------------<>");
+                    System.out.println("List of Category(Courses): ");
                     
+                    for (Map.Entry<HashMap, String> course : courses.courses.entrySet()) {
+                        
+                            // print all category
+
+                            
+
+                        }
+                        
                     int numb = us.retrieveNumOfClass();
                     
                             
@@ -99,11 +145,7 @@ public class MainClass {
                     System.out.println("Here is your schedule: ");
                     newAccount.displayCourses();
                        
-                    System.out.println("Which option would you like to do: [3] Go to agenda [0] Exit website");
-                
-                    break;
-                case 3:
-                    System.out.println("HELLO");
+                    option = 1;
                     break;
                 default:
                 	System.out.println("Invalid option");

@@ -18,9 +18,9 @@ import javax.tools.ForwardingFileObject;
  *
  * @author 2153617
  */
-public class EventOrganizer {
+public class EventOrganizer extends Account {
 	
-	private ArrayList<EventOrganizer> listOfEvents = new ArrayList();
+	ArrayList<EventOrganizer> listOfEvents = new ArrayList();
     
     private String name;
     
@@ -29,6 +29,10 @@ public class EventOrganizer {
     public EventOrganizer(String name, Category category, SubCategory subCategory, DueDate dueDate) {
     	this.name = name;
     }
+
+	public EventOrganizer() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public ArrayList<EventOrganizer> getListOfEvents() {
 		return listOfEvents;

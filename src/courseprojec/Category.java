@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class Category implements Comparator<Category>{
 	
-	private ArrayList<Category> subCat = new ArrayList();
+	ArrayList<Category> cat = new ArrayList();
 	
 	private String nameCategory;
 	
