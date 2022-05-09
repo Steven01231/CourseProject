@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -21,7 +20,7 @@ import java.util.Set;
  */
 public class Course extends Teacher implements Comparator<Course> {
 
-    static Map<HashMap, String> courses = new LinkedHashMap();
+   static Map<HashMap, String> courses = new LinkedHashMap();
 
     static HashMap<String, Course> csCourses = new LinkedHashMap();
     static HashMap<String, Course> mathCourses = new LinkedHashMap();
@@ -406,6 +405,7 @@ public class Course extends Teacher implements Comparator<Course> {
        
         for (Map.Entry<HashMap, String> course : courses.entrySet()) {
             if (course.getValue().equals(coursesAsked)) {
+                a.categories.add(new Category((String)course.getValue()));
                 Set set2 = course.getKey().entrySet();
                 Iterator iterator2 = set2.iterator();
                 while (iterator2.hasNext()) {
@@ -413,6 +413,7 @@ public class Course extends Teacher implements Comparator<Course> {
                     Map.Entry mentry2 = (Map.Entry) iterator2.next();
                     if(mentry2.getKey().equals(key)){
                         a.myCourse.add((Course)mentry2.getValue());
+                        
                         System.out.println("Course added!" + " [ " + mentry2.getKey() + " ] " + mentry2.getValue());
                     }
                 }
@@ -420,6 +421,26 @@ public class Course extends Teacher implements Comparator<Course> {
             }
 
         }
+    }
+    
+    public boolean checkKey (String key, String coursesAsked){
+        for (Map.Entry<HashMap, String> course : courses.entrySet()) {
+            if (course.getValue().equals(coursesAsked)) {
+                Set set2 = course.getKey().entrySet();
+                Iterator iterator2 = set2.iterator();
+                while (iterator2.hasNext()) {
+                    
+                    Map.Entry mentry2 = (Map.Entry) iterator2.next();
+                    if(mentry2.getKey().equals(key)){
+                        return true;
+                    }
+                    
+                }
+
+            }
+
+        }
+        return false;
     }
 
     @Override

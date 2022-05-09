@@ -24,7 +24,7 @@ public class SubCategory implements Comparator<SubCategory> {
 
 	@Override
 	public String toString() {
-		return "SubCategory [nameSubCat=" + nameSubCat + "]";
+		return this.nameSubCat;
 	}
 	
 	@Override

@@ -14,8 +14,6 @@ import java.util.ArrayList;
  * @author 2153617
  */
 public class Account {
-    
-    
     ArrayList<Account> accounts = new ArrayList();
     ArrayList<Course> myCourse = new ArrayList();
     
@@ -25,6 +23,8 @@ public class Account {
     private String userName;
     private String password;
     private int numbOfClass  = 0;
+    ArrayList<Category> categories = new ArrayList();
+    ArrayList<SubCategory> subCats = new ArrayList();
 
     public Account(String firstName, String lastName, String userName, String password) {
         this.firstName = firstName;
@@ -32,10 +32,11 @@ public class Account {
         this.userName = userName;
         this.password = password;
         this.myCourse = new ArrayList();
-        
+        ArrayList<Category> categories = new ArrayList();
+        ArrayList<SubCategory> subCats = new ArrayList();
     }
 
-
+    
     public Account() {
 		
 	}
@@ -91,6 +92,7 @@ public class Account {
 	public String toString() {
 		return this.firstName + " " + this.lastName;
 	}
+    
     
     
 }
